@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Player;
+use App\Models\Edition;
 use Illuminate\Http\Request;
 
-class PlayerController extends Controller
+class EditionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class PlayerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Player $player)
+    public function show(Edition $edition)
     {
         //
     }
@@ -34,7 +34,7 @@ class PlayerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Player $player)
+    public function update(Request $request, Edition $edition)
     {
         //
     }
@@ -42,7 +42,7 @@ class PlayerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Player $player)
+    public function destroy(Edition $edition)
     {
         //
     }

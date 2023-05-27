@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Coach;
+use App\Models\Professional;
 use Illuminate\Http\Request;
 
-class CoachController extends Controller
+class ProfessionalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class CoachController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Coach $coach)
+    public function show(Professional $professional)
     {
         //
     }
@@ -34,7 +34,7 @@ class CoachController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Coach $coach)
+    public function update(Request $request, Professional $professional)
     {
         //
     }
@@ -42,7 +42,7 @@ class CoachController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Coach $coach)
+    public function destroy(Professional $professional)
     {
         //
     }
