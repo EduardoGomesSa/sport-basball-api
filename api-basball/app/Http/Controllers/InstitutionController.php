@@ -30,7 +30,7 @@ class InstitutionController extends Controller
 
         $resource = new InstitutionResource($newInstitution);
 
-        return $resource->response(['message'=>'Institution successfull created']);
+        return $resource->response()->setStatusCode(201);
     }
 
     /**
