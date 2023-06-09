@@ -15,6 +15,13 @@ class InstitutionController extends Controller
     {
         $this->institution = $institution;
     }
+
+    public function index(Request $request){
+        return InstitutionResource::collection(
+            $this->institution->getAll($request->filter)
+        );
+    }
+
     /**
      * Store a newly created resource in storage.
      */

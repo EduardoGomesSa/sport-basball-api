@@ -9,3 +9,4 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::post('/institution', [InstitutionController::class, 'store']);
+Route::get('/institution', [InstitutionController::class, 'index']);
