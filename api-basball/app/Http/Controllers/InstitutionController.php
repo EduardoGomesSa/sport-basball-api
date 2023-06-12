@@ -47,9 +47,13 @@ class InstitutionController extends Controller
     {
         $institution = $this->institution->find($id);
 
-        $resource = new InstitutionResource($institution);
+        if($institution = ! null){
+            $resource = new InstitutionResource($institution);
 
-        return $resource->response()->setStatusCode(200);
+            return $resource->response()->setStatusCode(200);
+        }
+
+        return response(['error'=>'Institution not found'])->setStatusCode(404);
     }
 
     /**
@@ -63,8 +67,16 @@ class InstitutionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Institution $institution)
+    public function destroy(int $id)
     {
-        //
+        $institution = $this->institution->find($id);
+
+        if($institution != null){
+            $institution->delete();
+
+            return response()->setStatusCode(200);
+        }
+
+        return response(['error'=>'Institution not found'])->setStatusCode(404);
     }
 }
