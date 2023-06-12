@@ -47,7 +47,7 @@ class InstitutionController extends Controller
     {
         $institution = $this->institution->find($id);
 
-        if($institution = ! null){
+        if($institution != null){
             $resource = new InstitutionResource($institution);
 
             return $resource->response()->setStatusCode(200);
@@ -74,7 +74,7 @@ class InstitutionController extends Controller
         if($institution != null){
             $institution->delete();
 
-            return response()->setStatusCode(200);
+            return response()->json([], 204);;
         }
 
         return response(['error'=>'Institution not found'])->setStatusCode(404);
