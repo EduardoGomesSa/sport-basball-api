@@ -12,3 +12,4 @@ Route::post('/institution', [InstitutionController::class, 'store']);
 Route::get('/institution', [InstitutionController::class, 'index']);
 Route::get('/institution/{id}', [InstitutionController::class, 'show']);
 Route::delete('/institution/{id}', [InstitutionController::class, 'destroy']);
+Route::put('/institution/{id}', [InstitutionController::class, 'update']);

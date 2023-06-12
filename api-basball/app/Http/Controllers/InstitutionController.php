@@ -59,9 +59,19 @@ class InstitutionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Institution $institution)
+    public function update(InstitutionRequest $request, int $id)
     {
-        //
+        $institution = $this->institution->find($id);
+
+        if($institution != null){
+            $institution->update($request->all());
+
+            $resource = new InstitutionResource($institution);
+
+            return $resource->response()->setStatusCode(201);
+        }
+
+        return response(['error'=>'Institution not found'])->setStatusCode(404);
     }
 
     /**
