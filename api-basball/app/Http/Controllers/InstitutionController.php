@@ -43,9 +43,13 @@ class InstitutionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Institution $institution)
+    public function show(int $id)
     {
-        //
+        $institution = $this->institution->find($id);
+
+        $resource = new InstitutionResource($institution);
+
+        return $resource->response()->setStatusCode(200);
     }
 
     /**
