@@ -87,8 +87,16 @@ class LeagueController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(League $league)
+    public function destroy(int $id)
     {
-        //
+        $leagueExist = $this->league->find($id);
+
+        if($leagueExist != null){
+            $leagueExist->delete();
+
+            return response()->json(['message'=>'League deleted with success'], 200);
+        }
+
+        return response(['error'=>'League not found'])->setStatusCode(404);
     }
 }
