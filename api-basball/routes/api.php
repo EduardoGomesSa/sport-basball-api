@@ -18,3 +18,4 @@ Route::put('/institution/{id}', [InstitutionController::class, 'update']);
 Route::get('/league', [LeagueController::class, 'index']);
 Route::get('/league/{id}', [LeagueController::class, 'show']);
 Route::post('/league', [LeagueController::class, 'store']);
+Route::put('/league/{id}', [LeagueController::class, 'update']);

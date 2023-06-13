@@ -63,9 +63,25 @@ class LeagueController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, League $league)
+    public function update(int $id, Request $request)
     {
-        //
+        $leagueExist = $this->league->find($id);
+
+        if($leagueExist != null){
+            $nameAlreadyExist = $this->league->where('name', $request->name)->first();
+
+            if($nameAlreadyExist == null){
+                $leagueExist->update($request->all());
+
+                $resource = new LeagueResource($leagueExist);
+
+                return $resource->response()->setStatusCode(201);
+            }
+
+            return response(['error'=>'League name already exist'])->setStatusCode(409);
+        }
+
+        return response(['error'=>'League not found'])->setStatusCode(404);
     }
 
     /**
