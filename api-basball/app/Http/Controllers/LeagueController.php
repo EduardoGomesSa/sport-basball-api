@@ -2,25 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LeagueRequest;
+use App\Http\Resources\LeagueResource;
 use App\Models\League;
 use Illuminate\Http\Request;
 
 class LeagueController extends Controller
 {
+    private $league;
+
+    public function __construct(League $league)
+    {
+        $this->league = $league;
+    }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return LeagueResource::collection(
+            $this->league->getAll($request->filter)
+        );
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(LeagueRequest $request)
     {
-        //
+        $leagueExist = $this->league->where('name', $request->name)
+            ->where('institution_id', $request->institution_id)->first();
+
+        if($leagueExist == null){
+            $league = $this->league->create($request->all());
+
+            $resource = new LeagueResource($league);
+
+            return $resource->response()->setStatusCode(201);
+        }
+
+        return response(['error'=>'League Already exist in database']);
     }
 
     /**
