@@ -47,9 +47,17 @@ class LeagueController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(League $league)
+    public function show(int $id)
     {
-        //
+        $league = $this->league->find($id);
+
+        if($league != null){
+            $resource = new LeagueResource($league);
+
+            return $resource->response()->setStatusCode(200);
+        }
+
+        return response(['error'=>'League not found'])->setStatusCode(404);
     }
 
     /**
