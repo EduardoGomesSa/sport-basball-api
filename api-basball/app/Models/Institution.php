@@ -21,4 +21,8 @@ class Institution extends Model
 
         return $this->where('name', 'LIKE', "$filter%")->paginate();
     }
+
+    public function leagues(){
+        return $this->hasMany(League::class);
+    }
 }
