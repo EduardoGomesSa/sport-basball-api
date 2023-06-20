@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Tournament extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'edition_id',
+    ];
+
+    public function editions(){
+        return $this->hasMany(Edition::class);
+    }
 }
