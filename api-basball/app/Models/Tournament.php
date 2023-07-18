@@ -11,8 +11,13 @@ class Tournament extends Model
 
     protected $fillable = [
         'name',
+        'league_id',
         'edition_id',
     ];
+
+    public function league(){
+        return $this->belongsTo(League::class);
+    }
 
     public function editions(){
         return $this->hasMany(Edition::class);
