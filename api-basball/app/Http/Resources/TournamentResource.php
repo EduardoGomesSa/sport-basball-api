@@ -14,6 +14,11 @@ class TournamentResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id'=>$this->id,
+            'name'=>$this->name,
+            'league_id'=>$this->league_id,
+            'edition_id'=>$this->edition_id,
+        ];
     }
 }
