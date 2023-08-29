@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('editions', function (Blueprint $table) {
             $table->id();
+            $table->string('champion')->nullable();
+            $table->string('demoted')->nullable();
+            $table->integer('number_participants');
             $table->foreignId('club_id')
                 ->constrained()
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
-            $table->string('champion')->nullable();
             $table->timestamps();
         });
     }

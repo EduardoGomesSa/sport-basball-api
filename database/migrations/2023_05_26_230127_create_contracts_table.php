@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
+            $table->integer('termination_fine');
+            $table->integer('salary');
+            $table->integer('duration');
+            $table->string('state');
+            $table->string('type');
+            $table->string('function');
             $table->foreignId('club_id')
                 ->constrained()
                 ->onDelete('CASCADE')
@@ -21,10 +27,6 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
-            $table->integer('multa');
-            $table->integer('salary');
-            $table->integer('duration');
-            $table->string('state');
             $table->timestamps();
         });
     }
