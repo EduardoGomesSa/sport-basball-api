@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('leagues', function (Blueprint $table) {
             $table->id();
             $table->string('name', 25);
-            $table->date('year_creation');
+            $table->date('date_creation');
             $table->foreignId('institution_id')
                 ->constrained()
                 ->onDelete('CASCADE')

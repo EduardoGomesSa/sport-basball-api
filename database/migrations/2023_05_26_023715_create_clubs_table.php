@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->date('year_creation');
+            $table->date('date_creation');
             $table->timestamps();
         });
     }

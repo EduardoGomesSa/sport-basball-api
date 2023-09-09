@@ -11,6 +11,8 @@ class Edition extends Model
 
     protected $fillable = [
         'participants_id',
-        'champion'
+        'champion',
+        'demoted',
+        'number_participants'
     ];
 }

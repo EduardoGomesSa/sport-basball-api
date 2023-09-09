@@ -16,10 +16,6 @@ return new class extends Migration
             $table->string('champion')->nullable();
             $table->string('demoted')->nullable();
             $table->integer('number_participants');
-            $table->foreignId('club_id')
-                ->constrained()
-                ->onDelete('CASCADE')
-                ->onUpdate('CASCADE');
             $table->timestamps();
         });
     }
